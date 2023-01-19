@@ -56,7 +56,7 @@ bool charset_set(charset* chset, char ch, bool value);
  * @return [true] Changes made successfully
  * @return [false] Out of range: set in-range characters only.
  */
-bool charset_setString(charset* chset, char* str, bool value);
+bool charset_setString(charset* chset, const char* str, bool value);
 
 /**
  * @brief Sets charset characters in a range

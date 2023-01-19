@@ -1,5 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
+#include "count_appearances.c"
 
 int main(){
     const char* symbols = ".,;?!";
@@ -8,5 +7,6 @@ int main(){
     int r = count_appearances(phrase,symbols);
 
     printf("The result is: %d\n",r);
+    
     return 0;
 }

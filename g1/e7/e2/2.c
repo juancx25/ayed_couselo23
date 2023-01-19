@@ -1,6 +1,3 @@
-#include <stdlib.h>
-#include <stdio.h>
-
 #include "../e1/count_appearances.c"
 
 int main(){

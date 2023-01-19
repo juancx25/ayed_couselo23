@@ -21,7 +21,7 @@ bool charset_set(charset* chset, char ch, bool value){
     return result;
 }
 
-bool charset_setString(charset* chset, char* str, bool value){
+bool charset_setString(charset* chset, const char* str, bool value){
     bool result = true;
     int strSize = strlen(str);
     for (int i=0;i<strSize;i++){
