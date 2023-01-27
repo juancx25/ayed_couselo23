@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include <string.h>
 
 typedef struct{
     t_elem* elem;
@@ -34,16 +35,64 @@ void vector_free(vector* v){
     return;
 }
 
+uint32_t vector_length(vector* v){
+    return v->length;
+}
+
+void _vector_resize(vector* v, uint32_t new_reserve){
+    v->elem = (t_elem*)realloc(v->elem, new_reserve);
+    v->reserved_length = new_reserve;
+}
+
+void _vector_expand(vector* v){
+    uint32_t resize_factor = v->reserved_length*1.5 + 1;
+    _vector_resize(v, resize_factor);
+}
+
+/* bool vector_isfull(vector* v){
+    return (v->length == v->reserved_length);
+} */
+
+bool vector_isempty(vector* v){
+    return !(v->length);
+}
+
 t_elem vector_get(vector* v, uint32_t pos){
     return v->elem[pos];
 }
 
-bool vector_set(vector* v, uint32_t pos){
+
+
+bool vector_set(vector* v, uint32_t pos, t_elem value){
     bool result = false;
-    if (pos > v->length){
-        
+    if (pos < v->length){
+        v->elem[pos] = value;
     }
     return result;
+}
+
+void vector_add(vector* v, t_elem value){
+    if (v->length == v->reserved_length){
+        _vector_expand(v);
+    }
+    vector_set(v, v->length++, value);
+    return;
+}
+
+t_elem vector_remove(vector* v, uint32_t pos){
+    t_elem result;
+    if (pos < v->length){
+        result = vector_get(v, pos);
+        memcpy((void*)v->elem[pos], v->elem[pos+1], v->length-pos-1);
+        v->length--;
+    }
+    return result;
+}
+
+void vector_print(vector* v, void (*elem_print)(t_elem)){
+    for(int i=0;i<v->length;i++){
+        elem_print(vector_get(v, i));
+    }
 }
 
 #endif

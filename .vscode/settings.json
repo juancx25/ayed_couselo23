@@ -1,10 +1,6 @@
 {
     "files.associations": {
-        "stdlib.h": "c",
-        "stdbool.h": "c",
-        "charset.h": "c",
-        "inttypes.h": "c",
-        "fraction.h": "c"
-    },
-    "C_Cpp.errorSquiggles": "disabled"
+        "vector.h": "c",
+        "stdlib.h": "c"
+    }
 }
