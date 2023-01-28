@@ -56,27 +56,6 @@ void fraction_print(const fraction* f){
     return;
 }
 
-//highest common factor
-int _getHCF(int a, int b)
-{
-    a = abs(a);
-    b = abs(b);
-    int aux;
-    while (b != 0) {
-        aux = b;
-        b = a % b;
-        a = aux;
-    }
-    return a;
-}
-
-//least common multiple
-int _getLCM(int a, int b){
-    a = abs(a);
-    b = abs(b);
-    return (a*b)/_getHCF(a,b);
-}
-
 void fraction_simplify(fraction* f){
     int hcf = _getHCF(f->num, f->den);
     f->num /= hcf;
@@ -119,4 +98,23 @@ fraction* fraction_divide(const fraction* f1, const fraction* f2){
     fraction* result = fraction_init(f1->num * f2->den, f1->den * f2->num);
     fraction_simplify(result);
     return result;
+}
+
+int _getHCF(int a, int b)
+{
+    a = abs(a);
+    b = abs(b);
+    int aux;
+    while (b != 0) {
+        aux = b;
+        b = a % b;
+        a = aux;
+    }
+    return a;
+}
+
+int _getLCM(int a, int b){
+    a = abs(a);
+    b = abs(b);
+    return (a*b)/_getHCF(a,b);
 }
