@@ -1,5 +1,4 @@
 #include "../../ADTs/vector.h"
-#include <stdio.h>
 
 void printInt(void* elem){
     int* pepe = (int*)elem;
@@ -7,7 +6,7 @@ void printInt(void* elem){
 }
 
 int main(){
-    int v_size = 5;
+    int v_size = 12;
     vector* v = vector_init(v_size);
     
     for (int i=0;i<v_size;i++){
@@ -18,7 +17,17 @@ int main(){
 
     vector_print(v, *printInt);
 
-    
+    void* removed = vector_remove(v, 3);
+    free(removed);
+    vector_print(v, *printInt);
 
+    int newVal = 12;
+    removed = vector_get(v, 0);
+    vector_set(v, 0, (void*)&newVal);
+    free(removed);
+    
+    vector_print(v, *printInt);
+
+    vector_free(v);
     return 0;
 }
