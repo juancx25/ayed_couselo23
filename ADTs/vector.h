@@ -62,7 +62,8 @@ bool vector_isempty(vector* v){
 }
 
 t_elem vector_get(vector* v, uint32_t pos){
-    return v->elem[pos];
+    if (pos < v->length) return v->elem[pos];
+    else return NULL;
 }
 // Should it return the element in the position, or just a state boolean?
 bool vector_set(vector* v, uint32_t pos, t_elem value){
@@ -101,6 +102,17 @@ void vector_print(vector* v, void (*elem_print)(t_elem)){
         elem_print(vector_get(v, i));
     }
     printf("\n");
+}
+
+bool vector_swap(vector* v, uint32_t pos_a, uint32_t pos_b){
+    bool result = false;
+    uint32_t len = vector_length(v);
+    if ((pos_a < len) && (pos_b < len)){
+        t_elem tmp = vector_get(v, pos_a);
+        vector_set(v, pos_a, vector_get(v, pos_b));
+        vector_set(v, pos_b, tmp);
+    }
+    return result;
 }
 
 #endif

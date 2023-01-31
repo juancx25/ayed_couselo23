@@ -25,7 +25,9 @@ int main(){
     removed = vector_get(v, 0);
     vector_set(v, 0, (void*)&newVal);
     free(removed);
-    
+    vector_print(v, *printInt);
+
+    vector_swap(v, 1, 6);
     vector_print(v, *printInt);
 
     vector_free(v);
