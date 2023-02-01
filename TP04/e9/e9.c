@@ -1,6 +1,6 @@
 #include "../../ADTs/vector.h"
 #include <time.h>
-#include "../../utils/randomizer.c"
+#include "../../utils/vector/vector_utils.h"
 
 void _vectorInt_max(vector* v, int pos, int* max){
     if (pos == vector_length(v)) return;

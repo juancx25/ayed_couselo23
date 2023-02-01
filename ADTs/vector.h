@@ -43,7 +43,7 @@ uint32_t vector_length(vector* v){
 }
 
 void _vector_resize(vector* v, uint32_t new_reserve){
-    v->elem = (t_elem*)realloc(v->elem, new_reserve+99);
+    v->elem = (t_elem*)realloc(v->elem, new_reserve*sizeof(t_elem));
     v->reserved_length = new_reserve;
 }
 
