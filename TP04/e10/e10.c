@@ -16,7 +16,7 @@ int main(){
     void* item = vector_get(v, 41);
     uint32_t found = vu_linearSearchRecursive(v, item, (*cmp_int));
 
-    vu_bubble_sort(v, cmp_int);
+    vu_bubble_sort(v, (*cmp_int));
     item = vector_get(v, 13);
     found = vu_binarySearchRecursive(v, item, (*cmp_int));
     

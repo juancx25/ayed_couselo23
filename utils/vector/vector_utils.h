@@ -3,17 +3,33 @@
 
 /* ------------------------------ SORTING ------------------------------ */
 
-void vu_bubble_sort(vector* v, int (*cmp_int)(void*, void*)){
+void vu_bubble_sort(vector* v, int (*cmp)(void*, void*)){
     uint32_t len = vector_length(v);
     for (int i=0;i<len-1;i++){
         for (int j=0;j<len-i-1;j++){
-            if (cmp_int(vector_get(v, j), vector_get(v, j+1)) > 0){
+            if (cmp(vector_get(v, j), vector_get(v, j+1)) > 0){
                 vector_swap(v, j, j+1);
             }
         }
     }
 }
+void printInt(void* value){
+    printf("%d ",*((int*)value));
+}
 
+void vu_insertion_sort(vector* v, int (*cmp)(void*, void*)){
+    uint32_t len = vector_length(v);
+    vector* aux = vector_new();
+    for (int i=0;i<len-1;i++){
+        if (cmp(vector_get(v, i), vector_get(v, i+1)) > 0){
+            vector_swap(v, i, i+1);
+        }
+        vector_push(aux, vector_get(v, i)); //Should insert ordered, not just push
+    }
+    vector_free(v);
+    v = aux;
+    return;
+}
 
 
 /* ----------------------------- RANDOMIZER ---------------------------- */
@@ -23,7 +39,7 @@ void vu_randomizeInts(vector* v, int size, int threshold){
     for (int i=0;i<size;i++){
         int* aux = (int *)malloc(sizeof(int));
         *aux = rand() % threshold;
-        vector_add(v, (void*)aux);
+        vector_push(v, (void*)aux);
     }
 }
 

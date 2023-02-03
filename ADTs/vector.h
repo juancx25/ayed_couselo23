@@ -75,7 +75,7 @@ bool vector_set(vector* v, uint32_t pos, t_elem value){
     return result;
 }
 
-void vector_add(vector* v, t_elem value){
+void vector_push(vector* v, t_elem value){
     if (v->length == v->reserved_length){
         _vector_expand(v);
     }
@@ -113,6 +113,11 @@ bool vector_swap(vector* v, uint32_t pos_a, uint32_t pos_b){
         vector_set(v, pos_b, tmp);
     }
     return result;
+}
+
+void vector_empty(vector* v){
+    vector_free(v);
+    v = vector_new();
 }
 
 #endif

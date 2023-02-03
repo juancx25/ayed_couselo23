@@ -1,9 +1,6 @@
 {
     "files.associations": {
-        "stdio.h": "c",
-        "vector.h": "c",
-        "vector_search.c": "cpp",
-        "vector_randomizer.c": "cpp",
+        "type_traits": "c",
         "vector_utils.h": "c"
     }
 }

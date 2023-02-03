@@ -8,7 +8,7 @@ int main(){
     vector* v = vector_new();
     int v_size = 6;
     for (int i=0;i<v_size;i++){
-        vector_add(v, i);
+        vector_push(v, i);
     }
 
     vector_print(v, *printInt);

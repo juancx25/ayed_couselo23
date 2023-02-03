@@ -12,7 +12,7 @@ int main(){
     for (int i=0;i<v_size;i++){
         int* aux = (int*)malloc(sizeof(int));
         *aux = i;
-        vector_add(v, (void*)aux);
+        vector_push(v, (void*)aux);
     }
 
     vector_print(v, *printInt);
