@@ -1,6 +1,17 @@
 {
     "files.associations": {
+        "vector_utils.h": "c",
+        "list_utils.h": "c",
         "type_traits": "c",
-        "vector_utils.h": "c"
+        "time.h": "c",
+        "stdio.h": "c",
+        "list.h": "c",
+        "queue_static.h": "c",
+        "queue_dynamic.h": "c",
+        "stdlib.h": "c",
+        "queue_utils.h": "c",
+        "stack_dynamic.h": "c",
+        "stack_utils.h": "c",
+        "string.h": "c"
     }
 }

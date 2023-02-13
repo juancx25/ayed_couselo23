@@ -1,6 +1,10 @@
 #include "../../ADTs/vector.h"
 #include "time.h"
 
+void printInt(void* value){
+    printf("%d ",*((int*)value));
+}
+
 /* ------------------------------ SORTING ------------------------------ */
 
 void vu_bubble_sort(vector* v, int (*cmp)(void*, void*)){
@@ -13,24 +17,46 @@ void vu_bubble_sort(vector* v, int (*cmp)(void*, void*)){
         }
     }
 }
-void printInt(void* value){
-    printf("%d ",*((int*)value));
-}
+
 
 void vu_insertion_sort(vector* v, int (*cmp)(void*, void*)){
     uint32_t len = vector_length(v);
-    vector* aux = vector_new();
-    for (int i=0;i<len-1;i++){
-        if (cmp(vector_get(v, i), vector_get(v, i+1)) > 0){
-            vector_swap(v, i, i+1);
+    for (int i=1;i<len;i++){
+        int j = i;
+        while ((j > 0) && (cmp(vector_get(v, j-1), vector_get(v, j)) > 0)){
+            vector_swap(v, j, j-1);
+            j--;
         }
-        vector_push(aux, vector_get(v, i)); //Should insert ordered, not just push
     }
-    vector_free(v);
-    v = aux;
     return;
 }
 
+void vu_selection_sort(vector* v, int (*cmp)(void*, void*)){
+    uint32_t len = vector_length(v);
+    for (int i=0;i<len;i++){
+        int min = i;
+        for (int j=i;j<len;j++){
+            if (cmp(vector_get(v, j), vector_get(v, min)) < 0){
+                min = j;
+            }
+        }
+        vector_swap(v, i, min);
+    }
+}
+
+void vu_shell_sort(vector* v, int (*cmp)(void*, void*)){
+    uint32_t len = vector_length(v);
+    for (int i=len/2; i>0; i/=2){
+        for (int j=i; j<len; j++){
+            for (int k=j-i; k>=0; k-=i){
+                if (cmp(vector_get(v, k), vector_get(v, k+i)) > 0){
+                    vector_swap(v, k, k+i);
+                }
+                else break;
+            }
+        }
+    }
+}
 
 /* ----------------------------- RANDOMIZER ---------------------------- */
 
