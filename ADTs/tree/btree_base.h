@@ -154,7 +154,7 @@ int _btn_level(btn *node, t_elem_btree value, int level, int cmp(t_elem_btree, t
         }
         else{
             result = _btn_level(node->left, value, level+1, cmp);
-            if (result == -1) _btn_level(node->right, value, level+1, cmp);
+            if (result == -1) result = _btn_level(node->right, value, level+1, cmp);
         }
     }
     return result;
@@ -176,7 +176,7 @@ int _max(int a, int b) { return (a > b) ? a : b; }
  */
 t_elem_btree btn_height(btn *node) {
     int result = 0;
-    if (node){
+    if (node && !btn_isLeaf(node)){
         int h1 = btn_height(node->left);
         int h2 = btn_height(node->right);
         if (h1 > h2){
