@@ -39,7 +39,7 @@ int queue_isempty (queue* q) {
   return !(q->count);
 }
 
-void enqueue (queue* q, t_elem elem) { 
+void enqueue (queue* q, t_elem_queue elem) { 
   if (!queue_isfull(q)){
     queue_node* newTail = (queue_node*)malloc(sizeof(queue_node));
     newTail->value = elem;
@@ -56,8 +56,8 @@ void enqueue (queue* q, t_elem elem) {
   }
 }
 
-t_elem dequeue (queue* q) {
-  t_elem result = q->head->value;
+t_elem_queue dequeue (queue* q) {
+  t_elem_queue result = q->head->value;
   queue_node* deleted = q->head;
   q->head = q->head->next;
   q->count--;
@@ -65,6 +65,6 @@ t_elem dequeue (queue* q) {
   return result;
 }
 
-t_elem peek (queue* q) {
+t_elem_queue peek (queue* q) {
   return (q->head->value);
 }

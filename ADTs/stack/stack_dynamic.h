@@ -1,10 +1,10 @@
 #ifndef _STACK
 #define _STACK
 
-#define t_elem char
+#define t_elem_stack char
 
 typedef struct stack_node {
-  t_elem value;
+  t_elem_stack value;
   struct stack_node *next;
 } stack_node;
 
@@ -22,17 +22,17 @@ int stack_getsize(stack* s);
 
 int stack_getmaxsize(stack* s);
 
-void push(stack* s, t_elem elem);
+void push(stack* s, t_elem_stack elem);
 
-t_elem pop(stack* s);
+t_elem_stack pop(stack* s);
 
-t_elem top(stack* s);
+t_elem_stack top(stack* s);
 
 int stack_isempty(stack* s);
 
 int stack_isfull(stack* s);
 
-void stack_destroy(stack* s, void elem_free(t_elem));
+void stack_destroy(stack* s, void elem_free(t_elem_stack));
 
 #include "stack_dynamic.c"
 #endif

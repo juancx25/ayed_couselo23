@@ -115,6 +115,18 @@ bool vector_swap(vector* v, uint32_t pos_a, uint32_t pos_b){
     return result;
 }
 
+uint32_t vector_find(vector* v, t_elem value, int (*cmp)(void*,void*)){
+    int pos = -1;
+    int i = 0;
+    while ((pos == -1) && (i<vector_length(v))){
+        if (cmp(vector_get(v, i), value) == 0){
+            pos = i;
+        }
+        else i++;
+    }
+    return pos;
+}
+
 void vector_empty(vector* v){
     vector_free(v);
     v = vector_new();

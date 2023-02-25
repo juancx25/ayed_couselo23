@@ -14,6 +14,8 @@
         "stack_utils.h": "c",
         "string.h": "c",
         "btree_base.h": "c",
-        "btree_utils.h": "c"
+        "btree_utils.h": "c",
+        "graph_m.h": "c",
+        "vector.h": "c"
     }
 }

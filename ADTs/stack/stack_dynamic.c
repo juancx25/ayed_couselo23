@@ -36,7 +36,7 @@ int stack_isfull(stack* s) {
   return (s->count == s->maxsize);
 }
 
-void push(stack* s, t_elem elem) {
+void push(stack* s, t_elem_stack elem) {
   if (!stack_isfull(s)){
     stack_node* newHead = (stack_node*)malloc(sizeof(stack_node));
     newHead->value = elem;
@@ -46,8 +46,8 @@ void push(stack* s, t_elem elem) {
   }
 }
 
-t_elem pop(stack* s) {
-  t_elem result;
+t_elem_stack pop(stack* s) {
+  t_elem_stack result;
   if (!stack_isempty(s)){
     stack_node* deleted = s->head;
     s->head = s->head->next;
@@ -58,11 +58,11 @@ t_elem pop(stack* s) {
   return result;
 }
 
-t_elem top(stack* s) {
+t_elem_stack top(stack* s) {
   return s->head->value;
 }
 
-void stack_destroy(stack* s, void elem_free(t_elem)){
+void stack_destroy(stack* s, void elem_free(t_elem_stack)){
   stack_node* aux = s->head;
   for (int i=0;i<s->count;i++){
     stack_node* next = aux->next;

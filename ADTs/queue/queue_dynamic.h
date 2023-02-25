@@ -1,10 +1,10 @@
 #ifndef _QUEUE
 #define _QUEUE
 
-#define t_elem char
+#define t_elem_queue int
 
 typedef struct queue_node {
-  t_elem value;
+  t_elem_queue value;
   struct queue_node *next;
 } queue_node;
 
@@ -27,11 +27,11 @@ int queue_isfull (queue* q);
 
 int queue_isempty (queue* q);
 
-void enqueue (queue* q, t_elem elem);
+void enqueue (queue* q, t_elem_queue elem);
 
-t_elem dequeue (queue* q);
+t_elem_queue dequeue (queue* q);
 
-t_elem peek (queue* q);
+t_elem_queue peek (queue* q);
 
 #include "queue_dynamic.c"
 #endif
