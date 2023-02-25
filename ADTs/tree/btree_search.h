@@ -101,11 +101,11 @@ int sbt_insert_value(btn **node, t_elem_btree value, int cmp (t_elem_btree, t_el
 btn** sbt_get_min_node(btn **node) {
     if (node == NULL) return NULL;     // []->[]->nodo
     if ((*node) == NULL) return node;  // []->nodo
-    btn* aux = *node;
-    while(aux->left){
-        aux = aux->left;
+    btn** aux = node;
+    while((*aux)->left){
+        *aux = (*aux)->left;
     }
-    return &aux;
+    return aux;
 }
 
 /**
@@ -126,11 +126,11 @@ t_elem_btree sbt_min(btn *node) {
 btn** sbt_get_max_node(btn **node) {
         if (node == NULL) return NULL;
     if ((*node) == NULL) return node;
-    btn* aux = *node;
-    while(aux->right){
-        aux = aux->right;
+    btn** aux = node;
+    while((*aux)->right){
+        *aux = (*aux)->right;
     }
-    return &aux;
+    return aux;
 }
 
 /**
@@ -203,8 +203,9 @@ btn** sbt_find_node(btn **node, t_elem_btree value, int cmp (t_elem_btree, t_ele
     if (node == NULL) return NULL;     // []->[]->nodo
     if ((*node) == NULL) return NULL;  // []->nodo
 
-    btn* r = sbt_findr(*node, value, cmp);
-    return (&r);
+    btn** r;
+    *r = sbt_findr(*node, value, cmp);
+    return (r);
 }
 
 /**
@@ -218,8 +219,9 @@ btn** sbt_find_node(btn **node, t_elem_btree value, int cmp (t_elem_btree, t_ele
  */
 btn** sbt_findii(btn** node, t_elem_btree value, int cmp (t_elem_btree, t_elem_btree)) {
 
-    btn* r = sbt_findi(*node, value, cmp);
-    return (&r);
+    btn** r;
+    *r = sbt_findi(*node, value, cmp);
+    return (r);
 }
 
 /**
@@ -238,7 +240,7 @@ int sbt_in(btn* node, t_elem_btree value, int cmp (t_elem_btree, t_elem_btree)) 
  * va a eliminar.
  */
 btn* sbt_remove_node(btn **node,  int cmp (t_elem_btree, t_elem_btree)) {
-    /**** COMPLETAR ****/
+    
 }
 
 /**

@@ -13,6 +13,7 @@
         "stack_dynamic.h": "c",
         "stack_utils.h": "c",
         "string.h": "c",
-        "btree_base.h": "c"
+        "btree_base.h": "c",
+        "btree_utils.h": "c"
     }
 }

@@ -34,10 +34,10 @@ void main(){
     printf("\n%10s: \n", "Árbol");
     btn_print(root, btn_intToStr);
 
-    /*sbt_remove_value (&root, 20, btn_cmp_int);
+    sbt_remove_value (&root, 20, btn_cmp_int);
 
     printf("\n%10s: \n", "Árbol sin nel 20");
-    btn_print(root, btn_intToStr);*/
+    btn_print(root, btn_intToStr);
 
     sbt_insert_value (&root, 28, btn_cmp_int);
     sbt_insert_value (&root, 29, btn_cmp_int);
@@ -54,7 +54,7 @@ void main(){
     printf("\n%10s: \n", "Árbol con más nodos");
     btn_print(root, btn_intToStr);
 
-    /*sbt_remove_value2 (&root, 25, btn_cmp_int);
+    sbt_remove_value2 (&root, 25, btn_cmp_int);
 
     printf("\n%10s: \n", "Árbol sin el 25");
     btn_print(root, btn_intToStr);
@@ -62,6 +62,6 @@ void main(){
     sbt_remove_value_smart (&root, 10, btn_cmp_int);
 
     printf("\n%10s: \n", "Árbol sin el 10");
-    btn_print(root, btn_intToStr);*/
+    btn_print(root, btn_intToStr);
  
 }
