@@ -1,7 +1,7 @@
 #ifndef _STACK
 #define _STACK
 
-#define t_elem_stack char
+#define t_elem_stack int
 
 typedef struct stack_node {
   t_elem_stack value;
