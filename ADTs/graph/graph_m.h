@@ -108,7 +108,9 @@ int graph_remove_vertex(graph* g, int v){
 
 // Get the weight of an edge
 int graph_get_edge_weight(graph* g, int v1, int v2){
-    return g->adj_matrix[v1][v2];
+    int result;
+    (g->adj_matrix[v1][v2]) ? (result = g->adj_matrix[v1][v2]) : (result = 99999);
+    return result;
 }
 
 // Get the cost of an edge

@@ -29,6 +29,7 @@ int stack_getmaxsize(stack* s) {
 }
 
 int stack_isempty(stack* s) {
+  
   return !(s->count);
 }
 
