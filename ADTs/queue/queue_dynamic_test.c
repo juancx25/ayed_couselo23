@@ -39,7 +39,7 @@ void main(){
     queue* q2 = queue_copy(q);
 
     for(int i=0; i<maxsize; i++){
-        t_elem aux = dequeue(q);
+        t_elem_queue aux = dequeue(q);
         printf("%d\n", aux);
 
         aux = dequeue(q2);
